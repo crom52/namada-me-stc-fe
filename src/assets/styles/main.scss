@@ -1,0 +1,26 @@
+// card with border and box shadow
+.card {
+  @apply rounded-12 p-12 shadow-md bg-white my-12;
+}
+
+// Search form item
+.search-form-items {
+  @apply relative;
+  &:hover > i {
+    @apply opacity-100;
+  }
+  & > i {
+    @apply text-18 text-stone-300 opacity-0 absolute right-0 top-0 cursor-pointer transition duration-300;
+    &:hover {
+      @apply text-red;
+    }
+  }
+}
+
+// Vertical tab
+.vertical-tabs-container {
+  @apply grid grid-cols-[22rpx_1fr] b b-solid b-abd rounded-10 overflow-hidden;
+  & > *:nth-child(1) {
+    @apply bg-gray-50 b-r b-r-solid b-r-abd;
+  }
+}
