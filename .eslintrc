@@ -1,0 +1,53 @@
+{
+  "extends": "@antfu",
+  "rules": {
+    "newline-before-return": "off",
+    "max-statements-per-line": ["error", { "max": 2 }],
+    "padding-line-between-statements": [
+      "error",
+      { "blankLine": "always", "prev": "function", "next": "function" }
+    ],
+    "vue/component-name-in-template-casing": [
+      "error",
+      "PascalCase",
+      {
+        "registeredComponentsOnly": false
+      }
+    ],
+    "vue/block-order": [
+      "error",
+      {
+        "order": [["script", "template"], "style"]
+      }
+    ],
+    "semi": [2, "always"],
+    "no-console": "warn",
+    "no-extra-semi": "off",
+    "func-style": [
+      "error",
+      "declaration",
+      {
+        "allowArrowFunctions": true
+      }
+    ],
+    "antfu/top-level-function": "off",
+    "@typescript-eslint/semi": ["off"],
+    "curly": ["error", "multi-line"],
+    "vue/prop-name-casing": ["error", "camelCase"],
+    "vue/attribute-hyphenation": ["error", "never", { "ignore": [] }],
+    "vue/v-on-event-hyphenation": [
+      "error",
+      "never",
+      {
+        "autofix": true,
+        "ignore": []
+      }
+    ],
+    "vue/no-unused-vars": [
+      "error",
+      {
+        "ignorePattern": "^_"
+      }
+    ]
+  }
+}
