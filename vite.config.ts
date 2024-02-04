@@ -15,8 +15,17 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
   const { VITE_API_DESTINATION, VITE_BASE_URL } = loadEnv(mode, CWD);
 
   return {
+    // path resolver
+    resolve: {
+      alias: {
+        '@': fileURLToPath(new URL('./src', import.meta.url)),
+      },
+    },
+
+    // plugins setup
     plugins: [
       Vue(),
+      // auto import component
       Components({
         dts: './auto/components.d.ts',
         include: [/\.vue$/, /\.vue\?vue/],
@@ -26,6 +35,7 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
           }),
         ],
       }),
+      // Auto import
       AutoImport({
         dts: './auto/auto-imports.d.ts',
         dirs: [
@@ -35,10 +45,18 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
         imports: ['vue', 'vue-router', 'pinia'],
         vueTemplate: true,
       }),
-      UnoCSS({
-        presets: [],
-      }),
+      // Uno css
+      UnoCSS(),
     ],
+
+    // Dependencies
+    optimizeDeps: {
+      include: [
+        'lodash-es',
+      ],
+    },
+
+    // SCSS preprocessor
     css: {
       preprocessorOptions: {
         scss: {
@@ -46,6 +64,8 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
         },
       },
     },
+
+    // server proxy
     server: {
       port: 5500,
       host: true,
@@ -57,24 +77,17 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
         },
       },
     },
+    // dist preview port
     preview: {
       port: 5000,
     },
+
+    // deploy info
     build: {
       target: 'es2017',
       minify: 'esbuild',
       cssTarget: 'chrome79',
       chunkSizeWarningLimit: 2000,
-    },
-    optimizeDeps: {
-      include: [
-        'lodash-es',
-      ],
-    },
-    resolve: {
-      alias: {
-        '@': fileURLToPath(new URL('./src', import.meta.url)),
-      },
     },
   };
 });
