@@ -63,14 +63,14 @@ export const request = async <T>(
   const axiosConfig: AxiosRequestConfig = { ...config, data: config.body }; // re-assign config 'body' to axios 'data'
 
   const {
-    id,
+    // id,
     errorMsg,
     // permitRoles,
     successMsg,
     isShowLoading,
     loadingMessage = 'Đang thực hiện...',
     getDataDirectly = true,
-    isAuth = false,
+    // isAuth = false,
   } = options;
 
   // current role has no accessible to execute api request
