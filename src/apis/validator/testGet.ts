@@ -1,4 +1,4 @@
-import { ERequestMethod } from '@/enums/common.enums';
+import { ERequestMethod } from '@/enums/common.enum';
 import { request } from '@/services/request.service';
 
 export const validatorApis = {

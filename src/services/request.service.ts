@@ -5,10 +5,10 @@ import type {
   AxiosResponse,
   InternalAxiosRequestConfig,
 } from 'axios';
-import { uniqueSlash } from '@/utils/url.utils';
-import { ECacheKey, EResponseCode } from '@/enums/common.enums';
-import { BrowserStorage } from '@/utils/browser-storage.utils';
-import { UNHANDLED_SERVER_ERROR } from '@/constants/common.constants';
+import { uniqueSlash } from '@/utils/url.util';
+import { ECacheKey, EResponseCode } from '@/enums/common.enum';
+import { BrowserStorage } from '@/utils/browser-storage.util';
+import { UNHANDLED_SERVER_ERROR } from '@/constants/common.constant';
 
 const VITE_BASE_URL = import.meta.env.VITE_BASE_URL;
 
