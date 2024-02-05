@@ -10,8 +10,23 @@ const router = createRouter({
       children: [
         {
           path: '/',
-          name: 'main-home',
-          component: () => import('@/views/HomeView.vue'),
+          name: 'wallet',
+          component: () => import('@/views/wallet.vue'),
+        },
+        {
+          path: '/icb-trans',
+          name: 'icb-transfer',
+          component: () => import('@/views/icb-transfer.vue'),
+        },
+        {
+          path: '/stacking',
+          name: 'stacking',
+          component: () => import('@/views/stacking.vue'),
+        },
+        {
+          path: '/proposals',
+          name: 'proposals',
+          component: () => import('@/views/proposals.vue'),
         },
       ],
     },
@@ -19,6 +34,11 @@ const router = createRouter({
       path: '/dev',
       name: 'dev',
       component: () => import('@/views/dev/dev.vue'),
+    },
+    {
+      path: '/:pathMatch(.*)*',
+      name: 'NotFound',
+      component: () => import('@/views/error/404.vue'),
     },
   ],
 });

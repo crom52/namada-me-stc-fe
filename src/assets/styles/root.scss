@@ -4,12 +4,12 @@ html {
 }
 
 html.dark {
-  background-color: black;
-  color: white;
+  background-color: #1b1b1f;
+  color: #dfdfd6;
+}
 
-  button {
-    color: red
-  }
+#app {
+  height: inherit;
 }
 
 body {

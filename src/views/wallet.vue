@@ -13,10 +13,13 @@
       </strong>
 
       <br>
-
-      <button class="mt-20" @click="toggleDark()">
-        Click
-      </button>
+      <AButton type="primary">
+        click
+      </AButton>
+      <hr class="my-32">
+      <AButton>
+        click
+      </AButton>
       <strong>{{ isDark }}</strong>
     </div>
   </div>

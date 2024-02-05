@@ -1,5 +1,5 @@
 // preflight css
-import '@/assets/styles/normalize.css';
+import '@/assets/styles/normalize.scss';
 
 // vue transition
 import '@/assets/styles/transition.scss';
@@ -8,7 +8,7 @@ import '@/assets/styles/transition.scss';
 import 'uno.css';
 
 // root
-import '@/assets/styles/root.css';
+import '@/assets/styles/root.scss';
 import '@/assets/styles/main.scss';
 
 // setup

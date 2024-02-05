@@ -24,3 +24,7 @@
     @apply bg-gray-50 b-r b-r-solid b-r-abd;
   }
 }
+
+.newcla > .ant-drawer-body {
+  @apply p-0;
+}
