@@ -1,6 +1,6 @@
 html {
   font-size: 62.5%;
-  overflow: auto;
+  overflow: hidden;
 }
 
 html.dark {
@@ -9,7 +9,8 @@ html.dark {
 }
 
 #app {
-  height: inherit;
+  // height: 100vh;
+  overflow: hidden;
 }
 
 body {

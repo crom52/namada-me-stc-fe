@@ -1,7 +1,6 @@
 <template>
   <AMenu
     :selectedKeys="selectedMenuItem"
-    mode="inline"
     :theme="isDark ? 'dark' : undefined"
     :items="menuItems"
     @update:selectedKeys="handleSelectOtherKey([$event.toString()])"

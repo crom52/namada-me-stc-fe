@@ -2,8 +2,8 @@
   <header>
     <HeaderMainLayout />
   </header>
-  <main class="flex h-full">
-    <aside class="h-full hidden md:block">
+  <main class="flex">
+    <aside class="hidden md:block">
       <AsideMainLayout class="w-200" />
     </aside>
     <article class="flex-grow">
