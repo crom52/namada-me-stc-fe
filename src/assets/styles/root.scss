@@ -3,6 +3,15 @@ html {
   overflow: auto;
 }
 
+html.dark {
+  background-color: black;
+  color: white;
+
+  button {
+    color: red
+  }
+}
+
 body {
   font-size: 1.4rem;
   height: 100vh;
@@ -13,4 +22,3 @@ body {
     "Droid Sans", "Helvetica Neue", sans-serif;
 }
 
- 

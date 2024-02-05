@@ -11,14 +11,24 @@
           {{ responseVal || 'no data' }}
         </pre>
       </strong>
+
+      <br>
+
+      <button class="mt-20" @click="toggleDark()">
+        Click
+      </button>
+      <strong>{{ isDark }}</strong>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
+import { useDark, useToggle } from '@vueuse/core';
 import { validatorApis } from '@/apis/validator/testGet';
 
 const responseVal = ref<any>();
+const isDark = useDark();
+const toggleDark = useToggle(isDark);
 const onCallApis = async () => {
   const rs = await validatorApis.search2({ count: '10' });
   responseVal.value = rs;

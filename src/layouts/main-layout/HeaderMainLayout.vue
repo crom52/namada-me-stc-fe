@@ -9,7 +9,9 @@
     </ul>
 
     <ul class="hidden" md="list-item flex gap-32">
-      <li>Wallet</li>
+      <li>
+        Wallet
+      </li>
       <li>IBC</li>
       <li>Staking</li>
       <li>Proposals</li>
@@ -21,10 +23,11 @@
       </li>
       <li>
         <ToggleButton
-          v-model:modelValue="isDarkMode"
+          :modelValue="isDark"
           checkedClasses="text-hint"
           unCheckedClasses="text-black"
           class="h-20"
+          @update:modelValue="toggleDark()"
         />
       </li>
     </ul>
@@ -32,5 +35,8 @@
 </template>
 
 <script lang="ts" setup>
-const isDarkMode = ref(true);
+import { useDark, useToggle } from '@vueuse/core';
+
+const isDark = useDark();
+const toggleDark = useToggle(isDark);
 </script>
