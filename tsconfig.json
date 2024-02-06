@@ -14,7 +14,7 @@
     "skipLibCheck": false,
     "jsx": "preserve",
     "module": "ESNext",
-    "types": ["node", "webpack-env", "vite/client"],
+    "types": ["node", "webpack-env", "vite/client", "chrome"],
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]
