@@ -11,6 +11,7 @@
           type="primary"
           block
           size="large"
+          @click="onClick"
         >
           Click to download the extension
         </AButton>
@@ -23,11 +24,27 @@
 </template>
 
 <script setup lang="ts">
-import { validatorApis } from '@/apis/validator/testGet';
+import { NAMADA_CHROME_EXTENSION_ID } from '@/constants/common.constant';
 
-const responseVal = ref<any>();
-const onCallApis = async () => {
-  const rs = await validatorApis.search2({ count: '10' });
-  responseVal.value = rs;
+// import { validatorApis } from '@/apis/validator/testGet';
+
+// const responseVal = ref<any>();
+// const onCallApis = async () => {
+//   const rs = await validatorApis.search2({ count: '10' });
+//   responseVal.value = rs;
+// };
+
+const testExtension = () => {
+
+};
+const navigateToExtensionPage = () => {
+  window.open(
+    'https://chromewebstore.google.com/detail/namada-extension/hnebcbhjpeejiclgbohcijljcnjdofek',
+    '_blank', // <- This is what makes it open in a new window.
+  );
+};
+
+const onClick = () => {
+  testExtension();
 };
 </script>
