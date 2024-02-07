@@ -6,77 +6,73 @@
           IBC Transfer
         </p>
       </div>
-      <!-- Source chain -->
-      <div class="p-16">
-        <p>Source chain</p>
-        <ASelect
-          :value="selectedSourceChain"
-          size="large"
-          block
-          :options="sourceChainOptions"
-          class="mt-8"
-          @update:value="handleSelectSourceChain($event?.toString() || '')"
-        />
+      <div class="p-16 h-full">
+        <!-- Source chain -->
+        <div>
+          <p>Source chain</p>
+          <ASelect
+            :value="selectedSourceChain"
+            size="large"
+            block
+            :options="sourceChainOptions"
+            class="mt-8"
+            @update:value="handleSelectSourceChain($event?.toString() || '')"
+          />
+        </div>
+
+        <!-- Destination chain -->
+        <div class="mt-16">
+          <p>Destination Chain</p>
+          <ASelect
+            v-model:value="selectedDestinationChain"
+            labelInValue
+            size="large"
+            block
+            :options="destinationChainOptions"
+            class="mt-8"
+          />
+          <AButton
+            type="primary"
+            block
+            size="large"
+            class="mt-8"
+          >
+            Click to download the extension
+          </AButton>
+        </div>
+
+        <!-- Recipient -->
+        <div class="mt-16">
+          <p>Recipient</p>
+          <AInput
+            v-model:value="recipientInputVal"
+            size="large"
+            placeholder="Recipient"
+            class="mt-8"
+          />
+        </div>
+
+        <!-- Amount -->
+        <div class="mt-16">
+          <p>Amount</p>
+          <AInput
+            v-model:value="amountInputVal"
+            size="large"
+            placeholder="Amount"
+            class="mt-8"
+          />
+        </div>
+
+        <!-- Submit button -->
         <AButton
           type="primary"
           block
           size="large"
-          class="mt-8"
+          class="mt-auto"
         >
-          Click to download the extension
+          Submit
         </AButton>
       </div>
-      <!-- Destination chain -->
-      <div class="p-16">
-        <p>Destination Chain</p>
-        <ASelect
-          v-model:value="selectedDestinationChain"
-          labelInValue
-          size="large"
-          block
-          :options="destinationChainOptions"
-          class="mt-8"
-        />
-        <AButton
-          type="primary"
-          block
-          size="large"
-          class="mt-8"
-        >
-          Click to download the extension
-        </AButton>
-      </div>
-
-      <!-- Recipient -->
-      <div class="p-16">
-        <p>Recipient</p>
-        <AInput
-          v-model:value="recipientInputVal"
-          size="large"
-          placeholder="Recipient"
-          class="mt-8"
-        />
-      </div>
-
-      <!-- Amount -->
-      <div class="p-16">
-        <p>Amount</p>
-        <AInput
-          v-model:value="amountInputVal"
-          size="large"
-          placeholder="Amount"
-          class="mt-8"
-        />
-      </div>
-
-      <AButton
-        type="primary"
-        block
-        size="large"
-        class="mt-auto"
-      >
-        Submit
-      </AButton>
     </div>
   </div>
 </template>
