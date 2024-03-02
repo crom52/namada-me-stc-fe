@@ -1,28 +1,16 @@
 {
-  "extends": ["@antfu", "plugin:vue/vue3-recommended"],
+  "extends": ["@antfu", "@unocss", "eslint-config-prettier", "plugin:vue/vue3-recommended"],
+  "parser": "vue-eslint-parser",
+  "parserOptions": {
+    "parser": "@typescript-eslint/parser"
+  },
   "rules": {
-    "newline-before-return": "off",
-    "max-statements-per-line": ["error", { "max": 2 }],
-    "padding-line-between-statements": [
-      "error",
-      { "blankLine": "always", "prev": "function", "next": "function" }
-    ],
-    "vue/component-name-in-template-casing": [
-      "error",
-      "PascalCase",
-      {
-        "registeredComponentsOnly": false
-      }
-    ],
-
-    "vue/multi-word-component-names": false,
-    "vue/block-order": [
-      "error",
-      { "order": ["template", "script", "style"] }
-    ],
+    // Common
     "semi": [2, "always"],
     "no-console": "warn",
     "no-extra-semi": "off",
+    "newline-before-return": "off",
+    "max-statements-per-line": ["error", { "max": 2 }],
     "func-style": [
       "error",
       "declaration",
@@ -30,9 +18,33 @@
         "allowArrowFunctions": true
       }
     ],
-    "antfu/top-level-function": "off",
-    "@typescript-eslint/semi": ["off"],
     "curly": ["error", "multi-line"],
+    "object-curly-spacing": ["error", "always"],
+    "key-spacing": ["error", { "beforeColon": false }],
+    "comma-spacing": ["error", { "before": false, "after": true }],
+    "@typescript-eslint/semi": ["off"],
+    "no-multiple-empty-lines": "error",
+    "no-trailing-spaces": [
+      "error",
+      {
+        "skipBlankLines": true,
+        "ignoreComments": true
+      }
+    ],
+    "prefer-const": "warn",
+    "unused-imports/no-unused-imports": "warn",
+    "unused-imports/no-unused-vars": [
+      "warn",
+      {
+        "vars": "all",
+        "varsIgnorePattern": "^_",
+        "args": "after-used",
+        "argsIgnorePattern": "^_"
+      }
+    ],
+
+    // Vue rules
+    "vue/multi-word-component-names": "off",
     "vue/prop-name-casing": ["error", "camelCase"],
     "vue/attribute-hyphenation": ["error", "never", { "ignore": [] }],
     "vue/v-on-event-hyphenation": [
@@ -48,6 +60,26 @@
       {
         "ignorePattern": "^_"
       }
-    ]
+    ],
+    "vue/component-name-in-template-casing": [
+      "error",
+      "PascalCase",
+      {
+        "registeredComponentsOnly": false
+      }
+    ],
+    "vue/block-order": [
+      "error",
+      {
+        "order": ["template", "script", "style"]
+      }
+    ],
+
+    // Override plugins
+    "antfu/top-level-function": "off",
+    "@typescript-eslint/consistent-type-definitions": "off",
+    "@typescript-eslint/member-delimiter-style": "error",
+    "@stylistic/ts/member-delimiter-style": "off",
+    "@typescript-eslint/no-unused-vars": "off"
   }
 }

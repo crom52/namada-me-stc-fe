@@ -10,7 +10,7 @@ import 'uno.css';
 // root
 import '@/assets/styles/root.scss';
 import '@/assets/styles/main.scss';
-import '@/assets/styles/scroll-bar.scss'
+import '@/assets/styles/scroll-bar.scss';
 
 // setup
 export const setupAssets = () => ({});

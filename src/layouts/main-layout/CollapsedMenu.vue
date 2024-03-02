@@ -15,10 +15,10 @@
 import AsideMainLayout from './AsideMainLayout.vue';
 
 defineProps<{
-  open: boolean
+  open: boolean;
 }>();
 
 defineEmits<{
-  'update:open': [v: boolean]
+  'update:open': [v: boolean];
 }>();
 </script>

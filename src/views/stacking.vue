@@ -1,7 +1,3 @@
-
-<script lang="ts" setup>
-import { DownOutlined, SmileOutlined } from '@ant-design/icons-vue';
-</script>
 <template>
   <div class="page">
     <div>
@@ -12,3 +8,6 @@ import { DownOutlined, SmileOutlined } from '@ant-design/icons-vue';
     </div>
   </div>
 </template>
+
+<script lang="ts" setup>
+</script>
