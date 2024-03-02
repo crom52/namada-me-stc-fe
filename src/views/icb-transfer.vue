@@ -1,12 +1,12 @@
 <template>
   <div class="page">
     <div class="base-container">
-      <div class="text-center bg-gray-100 p-16 ">
+      <div class="bg-gray-100 p-16 text-center">
         <p class="text-16 font-700">
           IBC Transfer
         </p>
       </div>
-      <div class="p-16 h-full">
+      <div class="h-full p-16">
         <!-- Source chain -->
         <div>
           <p>Source chain</p>

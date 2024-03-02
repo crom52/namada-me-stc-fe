@@ -11,7 +11,10 @@
       </template>
 
       <template #default="{ record }: {record: any}">
-        <AButton type="link" class="p0">
+        <AButton
+          type="link"
+          class="p0"
+        >
           {{ record.name }}
         </AButton>
       </template>
@@ -24,7 +27,10 @@
       </template>
 
       <template #default="{ record }: {record: any}">
-        <template v-for="tag in record.tags" :key="tag">
+        <template
+          v-for="tag in record.tags"
+          :key="tag"
+        >
           <DynamicStatusTag :status="tag" />
         </template>
       </template>

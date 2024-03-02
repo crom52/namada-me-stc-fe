@@ -8,7 +8,7 @@
 </template>
 
 <script lang="ts" setup>
-import { h, reactive, watch } from 'vue';
+import { h } from 'vue';
 import {
   InboxOutlined,
 } from '@ant-design/icons-vue';
@@ -18,7 +18,7 @@ import StackingSvg from '@/components/icon/StackingSvg.vue';
 import TransferSvg from '@/components/icon/TransferSvg.vue';
 
 const emits = defineEmits<{
-  select: [v: string[]]
+  select: [v: string[]];
 }>();
 
 const isDark = useDark();

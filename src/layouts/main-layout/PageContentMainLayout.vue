@@ -6,7 +6,10 @@
       appear
     >
       <template v-if="Component">
-        <Component :is="Component" :key="route.fullPath" />
+        <Component
+          :is="Component"
+          :key="route.fullPath"
+        />
       </template>
     </Transition>
   </RouterView>

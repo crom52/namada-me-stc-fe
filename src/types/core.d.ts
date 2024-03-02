@@ -1,4 +1,5 @@
-import type {  ERequestMethod } from '@/enums/common.enum';
+import type { ERequestMethod } from '@/enums/common.enum';
+
 export {};
 
 declare global {
@@ -13,20 +14,20 @@ declare global {
   type OrNullish<T> = T | undefined | null;
 
   type RequestConfig = {
-    url: string
-    method: ERequestMethod
-    body?: any
-    params?: any
-    timeout?: number
+    url: string;
+    method: ERequestMethod;
+    body?: any;
+    params?: any;
+    timeout?: number;
   }
-  
+
   type RequestOptions = {
-    id?: string
-    isAuth?: boolean
-    successMsg?: string
-    errorMsg?: string
-    isShowLoading?: boolean
-    loadingMessage?: string
-    getDataDirectly?: boolean
+    id?: string;
+    isAuth?: boolean;
+    successMsg?: string;
+    errorMsg?: string;
+    isShowLoading?: boolean;
+    loadingMessage?: string;
+    getDataDirectly?: boolean;
   }
 }

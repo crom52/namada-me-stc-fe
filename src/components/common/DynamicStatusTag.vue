@@ -1,7 +1,17 @@
 <template>
-  <ATag :color="dynamicTag.color" :bordered="!noBorder" class="rounded-7">
-    <div v-if="dynamicTag.icon" class="flex gap-5 items-center">
-      <i class="text-16 inline-block" :class="dynamicTag.icon" />
+  <ATag
+    :color="dynamicTag.color"
+    :bordered="!noBorder"
+    class="rounded-7"
+  >
+    <div
+      v-if="dynamicTag.icon"
+      class="flex items-center gap-5"
+    >
+      <i
+        class="inline-block text-16"
+        :class="dynamicTag.icon"
+      />
       <span>
         {{ dynamicTag.statusText }}
       </span>
@@ -12,9 +22,9 @@
 
 <script lang="ts" setup>
 const props = defineProps<{
-  status: OrNullish<string>
-  loading?: boolean
-  noBorder?: boolean
+  status: OrNullish<string>;
+  loading?: boolean;
+  noBorder?: boolean;
 }>();
 
 const { status, loading } = toRefs(props);

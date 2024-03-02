@@ -63,22 +63,22 @@ type CssClasses = string | string[] | Record<string, boolean> | Nullish;
 
 const props = withDefaults(
   defineProps<{
-    modelValue: boolean
-    name?: string
-    disabled?: boolean
-    disabledClasses?: CssClasses
-    checkedClasses?: CssClasses
-    unCheckedClasses?: CssClasses
+    modelValue: boolean;
+    name?: string;
+    disabled?: boolean;
+    disabledClasses?: CssClasses;
+    checkedClasses?: CssClasses;
+    unCheckedClasses?: CssClasses;
 
-    labelClasses?: CssClasses
-    checkedLabel?: string
-    checkedLabelClasses?: CssClasses
-    unCheckedLabel?: string
-    unCheckedLabelClasses?: CssClasses
+    labelClasses?: CssClasses;
+    checkedLabel?: string;
+    checkedLabelClasses?: CssClasses;
+    unCheckedLabel?: string;
+    unCheckedLabelClasses?: CssClasses;
 
-    handleClasses?: CssClasses
-    checkedHandleClasses?: CssClasses
-    unCheckedHandleClasses?: CssClasses
+    handleClasses?: CssClasses;
+    checkedHandleClasses?: CssClasses;
+    unCheckedHandleClasses?: CssClasses;
   }>(),
   {
     name: undefined,
@@ -100,7 +100,7 @@ const props = withDefaults(
 );
 
 const emits = defineEmits<{
-  'update:modelValue': [v: boolean]
+  'update:modelValue': [v: boolean];
 }>();
 
 const checkedClasses = computed(() => {
