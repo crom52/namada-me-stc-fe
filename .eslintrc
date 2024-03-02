@@ -1,8 +1,5 @@
 {
-  "extends": [
-    "@antfu",
-    "plugin:vue/vue3-recommended"
-  ],
+  "extends": ["@antfu", "plugin:vue/vue3-recommended"],
   "rules": {
     "newline-before-return": "off",
     "max-statements-per-line": ["error", { "max": 2 }],
@@ -17,11 +14,11 @@
         "registeredComponentsOnly": false
       }
     ],
+
+    "vue/multi-word-component-names": false,
     "vue/block-order": [
       "error",
-      {
-        "order": [["script", "template"], "style"]
-      }
+      { "order": ["template", "script", "style"] }
     ],
     "semi": [2, "always"],
     "no-console": "warn",
