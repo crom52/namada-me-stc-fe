@@ -56,10 +56,11 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
       ],
     },
 
-    // SCSS preprocessor
+    // LESS preprocessor
     css: {
       preprocessorOptions: {
-        scss: {
+        less: {
+          javascriptEnabled: true,
           // additionalData: '@import "./src/assets/styles/varr.scss";',
         },
       },

@@ -18,4 +18,4 @@ import HeaderMainLayout from './HeaderMainLayout.vue';
 import PageContentMainLayout from './PageContentMainLayout.vue';
 </script>
 
-<style scoped lang="scss"></style>
+<style scoped lang="less"></style>
