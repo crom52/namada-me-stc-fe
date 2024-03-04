@@ -16,6 +16,7 @@ import { useDark } from '@vueuse/core';
 import WalletSvg from '@/components/icon/WalletSvg.vue';
 import StackingSvg from '@/components/icon/StackingSvg.vue';
 import TransferSvg from '@/components/icon/TransferSvg.vue';
+import ValidatorSvg from '@/components/icon/ValidatorSvg.vue';
 
 const emits = defineEmits<{
   select: [v: string[]];
@@ -54,6 +55,11 @@ const menuItems = [
     key: 'icb-transfer',
     icon: () => h(TransferSvg),
     label: 'ICB',
+  },
+  {
+    key: 'validator-management',
+    icon: () => h(ValidatorSvg),
+    label: 'Validator',
   },
   {
     key: 'stacking',

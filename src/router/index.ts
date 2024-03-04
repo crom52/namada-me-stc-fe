@@ -19,6 +19,11 @@ const router = createRouter({
           component: () => import('@/views/icb-transfer.vue'),
         },
         {
+          path: '/validators',
+          name: 'validator-management',
+          component: () => import('@/views/validator.vue'),
+        },
+        {
           path: '/stacking',
           name: 'stacking',
           component: () => import('@/views/stacking.vue'),

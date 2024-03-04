@@ -37,6 +37,7 @@ declare module 'vue' {
     ToggleButton: typeof import('./../src/components/core/ToggleButton.vue')['default']
     TransferSvg: typeof import('./../src/components/icon/TransferSvg.vue')['default']
     ValidatorsTable: typeof import('./../src/components/table/ValidatorsTable.vue')['default']
+    ValidatorSvg: typeof import('./../src/components/icon/ValidatorSvg.vue')['default']
     Wallet: typeof import('./../src/components/icon/wallet.vue')['default']
     WalletSvg: typeof import('./../src/components/icon/WalletSvg.vue')['default']
     WelcomeItem: typeof import('./../src/components/WelcomeItem.vue')['default']
