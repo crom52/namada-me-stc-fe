@@ -4,8 +4,8 @@ declare global {
   namespace API {
     type SearchValidatorQueryParams = {
       height?: string;
-      page: number;
-      pageSize: number;
+      page?: number;
+      pageSize?: number;
     };
 
     type SearchValidatorResponse = ApiResponse<{

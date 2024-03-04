@@ -1,11 +1,9 @@
 <template>
   <div class="page">
-    <div>
-      <p>
-        My Validators
-      </p>
-      <MyValidatorsTable class="mt-16" />
-    </div>
+    <h3 class="mb-16 text-22 font-700">
+      My Validators
+    </h3>
+    <MyValidatorsTable />
   </div>
 </template>
 

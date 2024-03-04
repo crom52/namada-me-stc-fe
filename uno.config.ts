@@ -50,7 +50,7 @@ export default defineConfig({
     ['text-spotlight', 'font-600 text-15'],
     ['text-desc', 'text-gray'],
     // Utility
-    ['clickable', 'cursor-pointer hover:underline'],
+    ['clickable', 'cursor-pointer text-info/90 font-500 hover:text-info'],
   ],
   postprocess: (util: UtilObject) => {
     // 1 => 0.1rem (ex: p-1)

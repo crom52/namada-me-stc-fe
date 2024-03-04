@@ -11,4 +11,10 @@ declare global {
     code: string;
     data: T;
   }
+
+  type WarperResponse2<T> = {
+    message: string;
+    code: string;
+    value: T;
+  }
 }

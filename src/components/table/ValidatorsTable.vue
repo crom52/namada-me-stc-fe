@@ -1,76 +1,82 @@
 <template>
-  <ATable :dataSource="data">
+  <ATable
+    :dataSource="tableState.records"
+    :loading="isFetching"
+    :pagination="false"
+    size="small"
+  >
+    <template #title>
+      <CommonTableHeader
+        :currentPage="tableState.currentPage"
+        :pageSize="tableState.pageSize"
+        :totalRecord="tableState.totalRecord"
+        @pageChange="handlePageChange"
+        @reload="fetchValidatorList"
+      />
+    </template>
+
     <ATableColumn
-      key="validator"
+      key="address"
+      title="Address"
+      :resizable="true"
+      :loading="isFetching"
       :ellipsis="true"
       :width="250"
       fixed="left"
     >
-      <template #title>
-        <span>Validator</span>
-      </template>
-
-      <template #default="{ record }: {record: any}">
-        <AButton
-          type="link"
-          class="p0"
-        >
-          {{ record.name }}
-        </AButton>
+      <template #default="{ record }: {record: API.ValidatorItem}">
+        {{ record.address }}
       </template>
     </ATableColumn>
-    <ATableColumn
-      key="status"
-    >
-      <template #title>
-        <span>Voting power</span>
-      </template>
 
-      <template #default="{ record }: {record: any}">
-        <template
-          v-for="tag in record.tags"
-          :key="tag"
-        >
-          <DynamicStatusTag :status="tag" />
-        </template>
-      </template>
-    </ATableColumn>
     <ATableColumn
-      key="amount"
+      key="voting-power"
+      title="Voting Power"
+      align="right"
+      :width="200"
     >
-      <template #title>
-        <span>Commission</span>
-      </template>
-
-      <template #default="{ record }: {record: any}">
-        10.2%
+      <template #default="{ record }: {record: API.ValidatorItem}">
+        {{ Number(record.voting_power)?.toLocaleString() || '-' }}
       </template>
     </ATableColumn>
   </ATable>
 </template>
 
 <script lang="ts" setup>
-const data = [{
-  key: '1',
-  name: 'John Brown',
-  age: 32,
-  address: 'New York No. 1 Lake Park',
-  tags: ['nice', 'developer'],
+import { validatorApis } from '@/apis/validator/validator-apis';
 
-},
-{
-  key: '2',
-  name: 'Jim Green',
-  age: 42,
-  address: 'London No. 1 Lake Park',
-  tags: ['loser'],
-},
-{
-  key: '3',
-  name: 'Joe Black',
-  age: 32,
-  address: 'Sidney No. 1 Lake Park',
-  tags: ['cool', 'teacher'],
-},
-];
+const composeTableState = () => {
+  return {
+    currentPage: 1,
+    pageSize: 50,
+    totalRecord: 0,
+    records: [] as API.ValidatorItem[],
+  };
+};
+
+const tableState = reactive(composeTableState());
+const isFetching = ref<boolean>(false);
+
+const fetchValidatorList = async (pageInfo: Partial<Pagination> = { page: 1, pageSize: 10 }) => {
+  isFetching.value = true;
+  const response = await validatorApis.search(pageInfo);
+
+  const fetchResult = response?.data?.result;
+  if (!(fetchResult && fetchResult?.validators.length)) {
+    return;
+  }
+
+  tableState.currentPage = pageInfo?.page || 1;
+  tableState.pageSize = pageInfo?.pageSize || 10;
+  tableState.records = fetchResult.validators;
+  tableState.totalRecord = Number(fetchResult.total) || 0;
+
+  isFetching.value = false;
+};
+
+const handlePageChange = (pageChanged: Partial<Pagination>) => {
+  fetchValidatorList(pageChanged);
+};
+
+fetchValidatorList({ pageSize: 50 });
 </script>

@@ -5,8 +5,8 @@ export const validatorApis = {
   search: (params: API.SearchValidatorQueryParams) => {
     const mappedParams = {
       height: params.height,
-      num: params.pageSize ?? 10,
-      offset: params.page ?? 1
+      num: params.pageSize || 10,
+      offset: params.page || 1
     };
     return request<WarperResponse<API.SearchValidatorResponse>>(
       {
