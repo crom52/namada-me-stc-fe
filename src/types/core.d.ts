@@ -22,6 +22,7 @@ declare global {
   }
 
   type RequestOptions = {
+    isTemp?: boolean;
     id?: string;
     isAuth?: boolean;
     successMsg?: string;
