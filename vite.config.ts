@@ -12,7 +12,13 @@ import { AntDesignVueResolver } from 'unplugin-vue-components/resolvers';
 const CWD = process.cwd();
 
 export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
-  const { VITE_API_DESTINATION, VITE_BASE_URL } = loadEnv(mode, CWD);
+  const {
+    VITE_API_DESTINATION,
+    VITE_BASE_URL,
+    // temp
+    VITE_TEMP_API_DESTINATION,
+    VITE_TEMP_URL
+  } = loadEnv(mode, CWD);
 
   return {
     // path resolver
@@ -60,15 +66,14 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
     css: {
       preprocessorOptions: {
         less: {
-          javascriptEnabled: true,
-          // additionalData: '@import "./src/assets/styles/varr.scss";',
+          // additionalData: '@import "./src/assets/styles/variables.less";',
         },
       },
     },
 
     // server proxy
     server: {
-      port: 5500,
+      port: 3001,
       host: true,
       proxy: {
         [VITE_BASE_URL]: {
@@ -76,11 +81,17 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
           changeOrigin: true,
           rewrite: path => path.replace(/^\/api/, ''),
         },
+        // TODO: remove this when complete proxy server
+        [VITE_TEMP_URL]: {
+          target: VITE_API_DESTINATION,
+          changeOrigin: true,
+          rewrite: path => path.replace(/^\/rpc-api/, ''),
+        }
       },
     },
     // dist preview port
     preview: {
-      port: 5000,
+      port: 3002,
     },
 
     // deploy info
