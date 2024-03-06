@@ -1,6 +1,6 @@
 <template>
   <div>
-    Test call API
+    Test
   </div>
 </template>
 
