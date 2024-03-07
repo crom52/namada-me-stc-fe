@@ -3,6 +3,7 @@
     :selectedKeys="selectedMenuItem"
     :theme="isDark ? 'dark' : undefined"
     :items="menuItems"
+    class="h-full"
     @update:selectedKeys="handleSelectOtherKey([$event.toString()])"
   />
 </template>
@@ -54,7 +55,7 @@ const menuItems = [
   {
     key: 'icb-transfer',
     icon: () => h(TransferSvg),
-    label: 'ICB',
+    label: 'IBC',
   },
   {
     key: 'validator-management',

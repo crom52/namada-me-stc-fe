@@ -8,22 +8,31 @@
       <CollapsedMenu v-model:open="isOpen" />
     </div>
 
-    <ul class="flex-center gap-8">
-      <NamadaLogoSvg />
+    <ul class="flex-center gap-16">
+      <img
+        class="h-35"
+        src="../../assets//images/namada-header-logo.png"
+        alt="logo"
+      >
+      <img
+        class="w-220"
+        src="../../assets//images/namada-yellow-animation-logo.gif"
+        alt="logo-animated"
+      >
     </ul>
 
     <ul class="flex-center gap-8">
       <li class="hidden md:block">
         <i class="i-lets-icons:setting-fill inline-block text-30" />
       </li>
-      <li>
+      <!-- <li>
         <ASwitch
           v-model:checked="darkMode"
           checkedChildren="Dark"
           unCheckedChildren="Light"
           @change="onUpdateChecked()"
         />
-      </li>
+      </li> -->
     </ul>
   </div>
 </template>

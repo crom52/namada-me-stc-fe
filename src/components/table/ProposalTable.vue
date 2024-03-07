@@ -2,7 +2,7 @@
   <ATable
     :dataSource="proposalListState"
     :loading="isFetching"
-    :scroll="{ x: 1500 }"
+    :scroll="{ x: 'auto' }"
     :pagination="false"
     size="small"
   >
