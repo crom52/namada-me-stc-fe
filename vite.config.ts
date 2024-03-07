@@ -73,7 +73,7 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
 
     // server proxy
     server: {
-      port: 3001,
+      port: 5500,
       host: true,
       proxy: {
         [VITE_BASE_URL]: {

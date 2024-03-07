@@ -30,6 +30,8 @@ export default defineConfig({
       danger: '#ff4d4f',
       hint: '#94a3b8',
       disabled: '#e2e8f0',
+      dark: '#141414',
+      dark2: '#303030'
     },
     breakpoints: {
       'xs': '0px',
