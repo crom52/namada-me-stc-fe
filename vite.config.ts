@@ -17,7 +17,9 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
     VITE_BASE_URL,
     // temp
     VITE_TEMP_API_DESTINATION,
-    VITE_TEMP_URL
+    VITE_TEMP_URL,
+    VITE_STC_API_DESTINATION,
+    VITE_STC_URL
   } = loadEnv(mode, CWD);
 
   return {
@@ -86,6 +88,11 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
           target: VITE_API_DESTINATION,
           changeOrigin: true,
           rewrite: path => path.replace(/^\/rpc-api/, ''),
+        },
+        [VITE_STC_URL]: {
+          target: VITE_STC_API_DESTINATION,
+          changeOrigin: true,
+          rewrite: path => path.replace(/^\/stc-api/, ''),
         }
       },
     },

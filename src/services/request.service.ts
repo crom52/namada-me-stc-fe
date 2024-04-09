@@ -6,6 +6,7 @@ import { uniqueSlash } from '@/utils/url.util';
 
 const VITE_BASE_URL = import.meta.env.VITE_BASE_URL;
 const VITE_TEMP_URL = import.meta.env.VITE_TEMP_URL;
+const VITE_STC_URL = import.meta.env.VITE_STC_URL;
 
 const service = axios.create({
   timeout: 10000,
@@ -24,7 +25,8 @@ export const request = async <T>(
     successMsg,
     isShowLoading,
     getDataDirectly = true,
-    isTemp
+    isTemp,
+    isStcApi
   } = options;
 
   const axiosConfig: AxiosRequestConfig = {
@@ -36,9 +38,13 @@ export const request = async <T>(
   if (isTemp) {
     axiosConfig.url = uniqueSlash(`${VITE_TEMP_URL}/${config.url}`);
   }
+  else if (isStcApi) {
+    axiosConfig.url = uniqueSlash(`${VITE_STC_URL}/${config.url}`);
+  }
   else {
     axiosConfig.url = uniqueSlash(`${VITE_BASE_URL}/${config.url}`);
   }
+
   // sent request
   try {
     // axiosConfig.url = config.url;
