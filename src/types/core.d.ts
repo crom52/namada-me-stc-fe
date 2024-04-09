@@ -23,6 +23,7 @@ declare global {
 
   type RequestOptions = {
     isTemp?: boolean;
+    isStcApi?: boolean;
     id?: string;
     isAuth?: boolean;
     successMsg?: string;
