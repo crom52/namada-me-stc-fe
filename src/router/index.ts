@@ -33,6 +33,11 @@ const router = createRouter({
           name: 'proposals',
           component: () => import('@/views/proposals.vue'),
         },
+        {
+          path: '/shielded-transfer',
+          name: 'shielded-transfer',
+          component: () => import('@/views/shielded-transfer.vue'),
+        },
       ],
     },
     {

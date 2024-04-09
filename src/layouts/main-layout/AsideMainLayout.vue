@@ -72,5 +72,10 @@ const menuItems = [
     icon: () => h(InboxOutlined),
     label: 'Proposals',
   },
+  {
+    key: 'shielded-transfer',
+    icon: () => h(InboxOutlined),
+    label: 'Shielded transferring',
+  },
 ];
 </script>
