@@ -145,8 +145,16 @@ async function onSubmit() {
     return;
   }
 
-  message.success({
-    content: 'Transfer success!',
+  if (rs.toString().toLowerCase().includes('successfully')) {
+    message.success({
+      content: 'Transfer success!',
+      key: 'main'
+    });
+    return;
+  }
+
+  message.info({
+    content: 'Failed, Unknown reason',
     key: 'main'
   });
 };
