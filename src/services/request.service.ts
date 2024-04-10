@@ -9,7 +9,7 @@ const VITE_TEMP_URL = import.meta.env.VITE_TEMP_URL;
 const VITE_STC_URL = import.meta.env.VITE_STC_URL;
 
 const service = axios.create({
-  timeout: 10000,
+  timeout: 3000000,
 });
 
 /**

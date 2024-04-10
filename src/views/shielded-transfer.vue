@@ -103,11 +103,11 @@ function validateCheck() {
   return false;
 };
 
-// function resetForm() {
-//   destinationAddress.value = '';
-//   amountInputVal.value = undefined;
-//   shouldToggleValidate.value = false;
-// };
+function resetForm() {
+  destinationAddress.value = '';
+  amountInputVal.value = undefined;
+  shouldToggleValidate.value = false;
+};
 
 async function onSubmit() {
   if (!validateCheck()) {
@@ -145,8 +145,17 @@ async function onSubmit() {
     return;
   }
 
-  message.success({
-    content: 'Transfer success!',
+  if (rs.toString().toLowerCase().includes('successfully')) {
+    message.success({
+      content: 'Transfer success!',
+      key: 'main'
+    });
+    resetForm();
+    return;
+  }
+
+  message.info({
+    content: 'Failed, Unknown reason',
     key: 'main'
   });
 };
