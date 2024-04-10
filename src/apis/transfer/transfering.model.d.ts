@@ -3,7 +3,7 @@ declare global {
   namespace API {
     type GetTransferStatusRequestParams = {
       token?: string;
-      // source: string;
+      source?: string;
       target: string;
       amount: number;
     }
