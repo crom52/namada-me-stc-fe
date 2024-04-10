@@ -5,6 +5,7 @@ export const transferApis = {
   transfer: (params: API.GetTransferStatusRequestParams) => {
     const requestParams = {
       ...params,
+      source: params.source ?? 'stccapital',
       token: params.token ?? 'naan'
     };
     return request<any>(
