@@ -103,11 +103,11 @@ function validateCheck() {
   return false;
 };
 
-// function resetForm() {
-//   destinationAddress.value = '';
-//   amountInputVal.value = undefined;
-//   shouldToggleValidate.value = false;
-// };
+function resetForm() {
+  destinationAddress.value = '';
+  amountInputVal.value = undefined;
+  shouldToggleValidate.value = false;
+};
 
 async function onSubmit() {
   if (!validateCheck()) {
@@ -150,6 +150,7 @@ async function onSubmit() {
       content: 'Transfer success!',
       key: 'main'
     });
+    resetForm();
     return;
   }
 
