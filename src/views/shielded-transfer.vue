@@ -20,9 +20,9 @@
             </li>
             <li>Namada Token</li>
           </ul>
-          <p class="text-24 font-800 text-gray">
+          <!-- <p class="text-24 font-800 text-gray">
             ≈ 0
-          </p>
+          </p> -->
         </div>
 
         <!-- Destination chain -->
