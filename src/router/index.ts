@@ -8,43 +8,43 @@ const router = createRouter({
       name: 'main',
       component: () => import('@/layouts/main-layout/MainLayout.vue'),
       children: [
-        {
-          path: '/',
-          name: 'wallet',
-          component: () => import('@/views/wallet.vue'),
-        },
-        {
-          path: '/icb-trans',
-          name: 'icb-transfer',
-          component: () => import('@/views/icb-transfer.vue'),
-        },
+        // {
+        //   path: '/',
+        //   name: 'wallet',
+        //   component: () => import('@/views/wallet.vue'),
+        // },
+        // {
+        //   path: '/icb-trans',
+        //   name: 'icb-transfer',
+        //   component: () => import('@/views/icb-transfer.vue'),
+        // },
         {
           path: '/validators',
           name: 'validator-management',
           component: () => import('@/views/validator.vue'),
         },
+        // {
+        //   path: '/stacking',
+        //   name: 'stacking',
+        //   component: () => import('@/views/stacking.vue'),
+        // },
+        // {
+        //   path: '/proposals',
+        //   name: 'proposals',
+        //   component: () => import('@/views/proposals.vue'),
+        // },
         {
-          path: '/stacking',
-          name: 'stacking',
-          component: () => import('@/views/stacking.vue'),
-        },
-        {
-          path: '/proposals',
-          name: 'proposals',
-          component: () => import('@/views/proposals.vue'),
-        },
-        {
-          path: '/shielded-transfer',
+          path: '/',
           name: 'shielded-transfer',
           component: () => import('@/views/shielded-transfer.vue'),
         },
       ],
     },
-    {
-      path: '/dev',
-      name: 'dev',
-      component: () => import('@/views/dev/dev.vue'),
-    },
+    // {
+    //   path: '/dev',
+    //   name: 'dev',
+    //   component: () => import('@/views/dev/dev.vue'),
+    // },
     {
       path: '/:pathMatch(.*)*',
       name: 'NotFound',
