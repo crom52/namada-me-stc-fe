@@ -1,15 +1,15 @@
 /* eslint-disable n/prefer-global/process */
-import { URL, fileURLToPath } from 'node:url'
+import { URL, fileURLToPath } from 'node:url';
 
-import { defineConfig, loadEnv } from 'vite'
-import Vue from '@vitejs/plugin-vue'
-import type { ConfigEnv, UserConfig } from 'vite'
-import Components from 'unplugin-vue-components/vite'
-import AutoImport from 'unplugin-auto-import/vite'
-import UnoCSS from 'unocss/vite'
-import { AntDesignVueResolver } from 'unplugin-vue-components/resolvers'
+import { defineConfig, loadEnv } from 'vite';
+import Vue from '@vitejs/plugin-vue';
+import type { ConfigEnv, UserConfig } from 'vite';
+import Components from 'unplugin-vue-components/vite';
+import AutoImport from 'unplugin-auto-import/vite';
+import UnoCSS from 'unocss/vite';
+import { AntDesignVueResolver } from 'unplugin-vue-components/resolvers';
 
-const CWD = process.cwd()
+const CWD = process.cwd();
 
 export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
   const {
@@ -20,7 +20,7 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
     VITE_TEMP_URL,
     VITE_STC_API_DESTINATION,
     VITE_STC_URL
-  } = loadEnv(mode, CWD)
+  } = loadEnv(mode, CWD);
 
   return {
     // path resolver
@@ -78,7 +78,6 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
           changeOrigin: true,
           rewrite: (path) => path.replace(/^\/api/, '')
         },
-        // TODO: remove this when complete proxy server
         [VITE_TEMP_URL]: {
           target: VITE_API_DESTINATION,
           changeOrigin: true,
@@ -103,5 +102,5 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
       cssTarget: 'chrome79',
       chunkSizeWarningLimit: 2000
     }
-  }
-})
+  };
+});
