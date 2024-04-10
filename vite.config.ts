@@ -1,15 +1,15 @@
 /* eslint-disable n/prefer-global/process */
-import { URL, fileURLToPath } from 'node:url';
+import { URL, fileURLToPath } from 'node:url'
 
-import { defineConfig, loadEnv } from 'vite';
-import Vue from '@vitejs/plugin-vue';
-import type { ConfigEnv, UserConfig } from 'vite';
-import Components from 'unplugin-vue-components/vite';
-import AutoImport from 'unplugin-auto-import/vite';
-import UnoCSS from 'unocss/vite';
-import { AntDesignVueResolver } from 'unplugin-vue-components/resolvers';
+import { defineConfig, loadEnv } from 'vite'
+import Vue from '@vitejs/plugin-vue'
+import type { ConfigEnv, UserConfig } from 'vite'
+import Components from 'unplugin-vue-components/vite'
+import AutoImport from 'unplugin-auto-import/vite'
+import UnoCSS from 'unocss/vite'
+import { AntDesignVueResolver } from 'unplugin-vue-components/resolvers'
 
-const CWD = process.cwd();
+const CWD = process.cwd()
 
 export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
   const {
@@ -20,14 +20,14 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
     VITE_TEMP_URL,
     VITE_STC_API_DESTINATION,
     VITE_STC_URL
-  } = loadEnv(mode, CWD);
+  } = loadEnv(mode, CWD)
 
   return {
     // path resolver
     resolve: {
       alias: {
-        '@': fileURLToPath(new URL('./src', import.meta.url)),
-      },
+        '@': fileURLToPath(new URL('./src', import.meta.url))
+      }
     },
 
     // plugins setup
@@ -39,29 +39,24 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
         include: [/\.vue$/, /\.vue\?vue/],
         resolvers: [
           AntDesignVueResolver({
-            importStyle: false,
-          }),
-        ],
+            importStyle: false
+          })
+        ]
       }),
       // Auto import
       AutoImport({
         dts: './auto/auto-imports.d.ts',
-        dirs: [
-          './src/composable/core',
-          './src/stores',
-        ],
+        dirs: ['./src/composable/core', './src/stores'],
         imports: ['vue', 'vue-router', 'pinia'],
-        vueTemplate: true,
+        vueTemplate: true
       }),
       // Uno css
-      UnoCSS(),
+      UnoCSS()
     ],
 
     // Dependencies
     optimizeDeps: {
-      include: [
-        'lodash-es',
-      ],
+      include: ['lodash-es']
     },
 
     // LESS preprocessor
@@ -69,36 +64,36 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
       preprocessorOptions: {
         less: {
           // additionalData: '@import "./src/assets/styles/variables.less";',
-        },
-      },
+        }
+      }
     },
 
     // server proxy
     server: {
-      port: 5500,
+      port: 80,
       host: true,
       proxy: {
         [VITE_BASE_URL]: {
           target: VITE_API_DESTINATION,
           changeOrigin: true,
-          rewrite: path => path.replace(/^\/api/, ''),
+          rewrite: (path) => path.replace(/^\/api/, '')
         },
         // TODO: remove this when complete proxy server
         [VITE_TEMP_URL]: {
           target: VITE_API_DESTINATION,
           changeOrigin: true,
-          rewrite: path => path.replace(/^\/rpc-api/, ''),
+          rewrite: (path) => path.replace(/^\/rpc-api/, '')
         },
         [VITE_STC_URL]: {
           target: VITE_STC_API_DESTINATION,
           changeOrigin: true,
-          rewrite: path => path.replace(/^\/stc-api/, ''),
+          rewrite: (path) => path.replace(/^\/stc-api/, '')
         }
-      },
+      }
     },
     // dist preview port
     preview: {
-      port: 3002,
+      port: 3002
     },
 
     // deploy info
@@ -106,7 +101,7 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
       target: 'es2017',
       minify: 'esbuild',
       cssTarget: 'chrome79',
-      chunkSizeWarningLimit: 2000,
-    },
-  };
-});
+      chunkSizeWarningLimit: 2000
+    }
+  }
+})
