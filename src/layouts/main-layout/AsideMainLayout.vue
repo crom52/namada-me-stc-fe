@@ -14,9 +14,6 @@ import {
   InboxOutlined,
 } from '@ant-design/icons-vue';
 import { useDark } from '@vueuse/core';
-import WalletSvg from '@/components/icon/WalletSvg.vue';
-import StackingSvg from '@/components/icon/StackingSvg.vue';
-import TransferSvg from '@/components/icon/TransferSvg.vue';
 import ValidatorSvg from '@/components/icon/ValidatorSvg.vue';
 
 const emits = defineEmits<{
@@ -48,34 +45,35 @@ watchEffect(() => {
 
 const menuItems = [
   {
-    key: 'wallet',
-    icon: () => h(WalletSvg),
-    label: 'Wallet',
+    key: 'shielded-transfer',
+    icon: () => h(InboxOutlined),
+    label: 'Shielded transferring',
   },
-  {
-    key: 'icb-transfer',
-    icon: () => h(TransferSvg),
-    label: 'IBC',
-  },
+  // {
+  //   key: 'wallet',
+  //   icon: () => h(WalletSvg),
+  //   label: 'Wallet',
+  // },
+  // {
+  //   key: 'icb-transfer',
+  //   icon: () => h(TransferSvg),
+  //   label: 'IBC',
+  // },
   {
     key: 'validator-management',
     icon: () => h(ValidatorSvg),
     label: 'Validator',
   },
-  {
-    key: 'stacking',
-    icon: () => h(StackingSvg),
-    label: 'Stacking',
-  },
-  {
-    key: 'proposals',
-    icon: () => h(InboxOutlined),
-    label: 'Proposals',
-  },
-  {
-    key: 'shielded-transfer',
-    icon: () => h(InboxOutlined),
-    label: 'Shielded transferring',
-  },
+  // {
+  //   key: 'stacking',
+  //   icon: () => h(StackingSvg),
+  //   label: 'Stacking',
+  // },
+  // {
+  //   key: 'proposals',
+  //   icon: () => h(InboxOutlined),
+  //   label: 'Proposals',
+  // },
+
 ];
 </script>
