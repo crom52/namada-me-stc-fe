@@ -16,7 +16,7 @@
           >
           <ul class="grid ml-16 mr-auto gap-4">
             <li class="text-20 font-700">
-              NAAM
+              NAAN
             </li>
             <li>Namada Token</li>
           </ul>
