@@ -7,23 +7,21 @@
         </h3>
       </div>
       <div class="h-full p-16">
-        <!-- Source chain -->
-        <div>
-          <p class="font-500">
-            Source Address
-          </p>
-          <AInput
-            v-model:value="sourceAddress"
-            size="large"
-            :status="!sourceAddress && shouldToggleValidate ? 'error' : undefined"
-            placeholder="Source Address..."
-            class="mt-8"
-          />
-          <p
-            v-show="!sourceAddress && shouldToggleValidate"
-            class="mt-4 text-danger"
+        <!-- TOKEN -->
+        <div class="mt-16 flex">
+          <img
+            src="../assets/images/namada-dark.png"
+            alt="atom"
+            class="h-55 w-55"
           >
-            Source Address can not be empty
+          <ul class="grid ml-16 mr-auto gap-4">
+            <li class="text-20 font-700">
+              NAAM
+            </li>
+            <li>Namada Token</li>
+          </ul>
+          <p class="text-24 font-800 text-gray">
+            ≈ 0
           </p>
         </div>
 
@@ -79,7 +77,7 @@
           class="mt-32"
           @click="onSubmit"
         >
-          Submit
+          Confirm
         </AButton>
       </div>
     </div>
@@ -90,13 +88,12 @@
 import { message } from 'ant-design-vue';
 import { transferApis } from '@/apis/transfer/transfer-apis';
 
-const sourceAddress = ref('');
 const destinationAddress = ref('');
 const amountInputVal = ref();
 const shouldToggleValidate = ref(false);
 
 function validateCheck() {
-  const failed = [sourceAddress.value, destinationAddress.value, amountInputVal.value].some(i => !i);
+  const failed = [destinationAddress.value, amountInputVal.value].some(i => !i);
   if (!failed) {
     return true;
   }
@@ -105,7 +102,6 @@ function validateCheck() {
 };
 
 function resetForm() {
-  sourceAddress.value = '';
   destinationAddress.value = '';
   amountInputVal.value = undefined;
   shouldToggleValidate.value = false;
@@ -118,7 +114,6 @@ async function onSubmit() {
 
   const rs = await transferApis.transfer({
     amount: amountInputVal.value || 0,
-    source: sourceAddress.value,
     target: destinationAddress.value
   });
 
