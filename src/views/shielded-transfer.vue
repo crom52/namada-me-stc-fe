@@ -74,10 +74,11 @@
           type="primary"
           block
           size="large"
+          :loading="isLoading"
           class="mt-32"
           @click="onSubmit"
         >
-          Confirm
+          {{ isLoading ? 'Processing transfer...' : 'Confirm' }}
         </AButton>
       </div>
     </div>
@@ -91,6 +92,7 @@ import { transferApis } from '@/apis/transfer/transfer-apis';
 const destinationAddress = ref('');
 const amountInputVal = ref();
 const shouldToggleValidate = ref(false);
+const isLoading = ref<boolean>(false);
 
 function validateCheck() {
   const failed = [destinationAddress.value, amountInputVal.value].some(i => !i);
@@ -101,28 +103,52 @@ function validateCheck() {
   return false;
 };
 
-function resetForm() {
-  destinationAddress.value = '';
-  amountInputVal.value = undefined;
-  shouldToggleValidate.value = false;
-};
+// function resetForm() {
+//   destinationAddress.value = '';
+//   amountInputVal.value = undefined;
+//   shouldToggleValidate.value = false;
+// };
 
 async function onSubmit() {
   if (!validateCheck()) {
     return;
   }
 
-  const rs = await transferApis.transfer({
-    amount: amountInputVal.value || 0,
-    target: destinationAddress.value
-  });
+  let rs: any;
+  try {
+    isLoading.value = true;
+    message.loading({
+      content: 'Processing...',
+      key: 'main',
+      duration: 0
+    });
+    rs = await transferApis.transfer({
+      amount: amountInputVal.value || 0,
+      target: destinationAddress.value
+    });
+  }
+  catch (error) {
+    message.error({
+      content: 'Network error! try again',
+      key: 'main'
+    });
+  }
+  finally {
+    isLoading.value = false;
+  }
 
-  if (!rs) {
-    message.error('Failed to transfer! try again');
+  if (!rs || rs === 'Transferring has failed') {
+    message.error({
+      content: 'Transfer has failed.',
+      key: 'main'
+    });
     return;
   }
 
-  message.info(rs);
+  message.success({
+    content: 'Transfer success!',
+    key: 'main'
+  });
 };
 
 </script>
